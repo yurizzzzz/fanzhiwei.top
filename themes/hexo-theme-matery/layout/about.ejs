@@ -1,0 +1,316 @@
+<style type="text/css">
+    /* don't remove. */
+    .about-cover {
+        height: 110vh;   
+    }
+</style>
+
+<style>
+    .textCetent{
+        margin: 10px 100px;
+        }
+</style>
+
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 0!important;
+        }
+        .swbk ol {
+            padding: 2px 10px;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 100px;
+        margin-bottom: 30px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        left: -14px;
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 2.4rem;
+        text-indent: 2rem;
+        /* font-style: italic;
+        font-family: 'Architects Daughter', cursive!important; */
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 700px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            padding: 2px 8px;
+        }
+    }
+</style>
+
+<%- partial('_partial/bg-cover') %>
+
+<main class="content">
+
+    <div id="aboutme" class="container about-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
+                        <%- partial('_partial/post-statis') %>
+                    </div>
+                    <div class="col s12 m12 l4">
+                        <div class="profile center-align">
+                            <div class="avatar">
+                                <img src="<%- theme.jsDelivr.url %><%- url_for(theme.profile.avatar) %>" alt="<%- config.author %>"
+                                     class="circle responsive-img avatar-img">
+                            </div>
+                            <div class="author">
+                                <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
+                                    <%- partial('_partial/post-statis') %>
+                                </div>
+                                <div class="title"><%- config.author %></div>
+                                <div class="career"><%- theme.profile.career %></div>
+                                <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
+                                    <%- partial('_partial/social-link') %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l4 hide-on-med-and-down" data-aos="zoom-in-left">
+                        <div class="social-link">
+                            <%- partial('_partial/social-link') %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="introduction center-align" data-aos="fade-up"><%= theme.profile.introduction %></div>
+
+                <!-- <%- partial('_widget/post-charts') %> -->
+
+                <% if (theme.myProjects && theme.myProjects.enable) { %>
+                <%- partial('_widget/my-projects') %>
+                <% } %>
+
+                <% if (theme.mySkills && theme.mySkills.enable) { %>
+                <%- partial('_widget/my-skills') %>
+                <% } %>
+
+                <% if (theme.myGallery && theme.myGallery.enable) { %>
+                <%- partial('_widget/my-gallery') %>
+                <% } %>
+                
+                <!-- <% if (theme.artitalk && theme.artitalk.enable) { %>
+                <%- partial('_widget/artitalk') %>
+                <% } %> -->
+                
+            
+                <div class="ziwojieshao">
+                    <h3  class="textCetent">🏡 关于我</h3>
+                    <div class="swbk">
+                        <div class="label" style="color: rgb(77, 117, 192);">
+                            <span>YuriFan</span>
+                        </div>
+                        <p>
+                            Yuri是《咱们裸熊》动漫中的一个角色名，当时对于其中Yuri这个角色的印象十分深刻于是便给自己英文名取名为Yuri
+                            我的姓是Fan所以结合起来将YuriFan作为网名来使用
+                        </p>
+                        <p>
+                            天秤座，喜欢打篮球，羽毛球等各种体育运动，性格有时很开朗有时也很内向喜欢独处安静，喜欢一个人或和喜欢的人一起
+                            到好看的地方去旅游游玩，喜欢去不同的地方感受异域风情，喜欢摄影
+                        </p>
+                        <p>
+                            目标是赚钱，目的是享受生活，同时极大渴望获取知识，想知道世界上很多东西的原理，总觉得世界很奇妙人类真的很聪明
+                            希望有朝一日可以改变这个世界
+                        </p>
+                    </div>
+
+                    <h3  class="textCetent">🕛 目标或梦想</h3>
+                    <div class="swbk">
+                        <div class="label" style="color: rgb(36, 127, 143);">
+                            <span>想要做的事</span>
+                        </div>
+                        <p>
+                            去一次瑞士感受瑞士的山水和宁静
+                        </p>
+                        <p>
+                            拥有自己的超级无敌高性能的服务器
+                        </p>
+                        <p>
+                            拥有足够让自己不用发愁的工资或金钱，让自己所爱之人享受生活
+                        </p>
+                        <p>
+                            在山顶看一次日出
+                        </p>
+                        <p>
+                            成为一名优秀的抖音UP主，记录美好生活
+                        </p>
+                        <p>
+                            发高质量的顶会paper最好是可以影响圈子里研究的人
+                        </p>
+                        <p>
+                            从飞机上跳伞下来
+                        </p>
+                        <p>
+                            成为对国家做出重大贡献的人
+                        </p>
+                        <p>
+                            开蜜雪冰城，自己当老板
+                        </p>
+                    </div>
+
+                    <h3  class="textCetent">📬 联系方式</h3>
+                    <div class="swbk">
+                        <div class="label" style="color: rgb(38, 124, 74);">
+                            <span>在这里找到我</span>
+                        </div>
+                        <p>
+                            QQ邮箱 ： zhwe.fan@qq.com
+                        </p>
+                        <p>
+                            微信号 ： Yuri_FanZhiwei
+                        </p>
+                        <p>
+                            Gmail邮箱 ： yuri.fanzhiwei@gmail.com
+                        </p>
+                        <p>
+                            同时也可以在留言板留言不过可能比较少去看
+                        </p>
+                    </div>
+
+                    <h3  class="textCetent">💻 关于这个网站</h3>
+                    <div class="swbk">
+                        <div class="label" style="color: rgb(185, 116, 25);">
+                            <span>这个网站的说明</span>
+                        </div>
+                        <p>
+                            🏷️关于这个网站主要是基于Hexo这个开源框架搭建我只是在这基础上进行魔改而已
+                        </p>
+                        <p>
+                            🏷️这个网站目前部署在阿里云轻量应用服务器上~
+                        </p>
+                        <p>
+                            🏷️域名是从阿里云注册购买的，域名已备案
+                        </p>
+                        <p>
+                            🏷️使用阿里云CDN加速
+                        </p>
+                    </div>
+
+                    <h3  class="textCetent">🎓 我的经历</h3>
+                    <div class="swbk">
+                        <div class="label" style="color: rgb(141, 31, 31);">
+                            <span>教育和工作经历</span>
+                        </div>
+                        <p>
+                            🏫本科/福州大学/主修电子信息工程专业/辅修人工智能专业
+                        </p>
+                        <p>
+                            <div align="center">
+                                <img src="https://pic.imgdb.cn/item/611b25a04907e2d39cc6e4d1.jpg" width="50%"/>
+                            </div>
+                        </p>
+                        <p>
+                            🏫硕士/天津大学/信息与通信工程/学硕
+                        </p>
+                        <p>
+                            <div align="center">
+                                <img src="https://s4.ax1x.com/2021/12/15/TSXczF.jpg" width="50%"/>
+                            </div>
+                        </p>
+                        <p>
+                            🏢实习/泉州津大智能制造有限公司/边缘AI
+                        </p>
+                        <p>
+                            <div align="center">
+                                <img src="https://pic.imgdb.cn/item/611b267d4907e2d39cc9717c.jpg" width="50%"/>
+                            </div>
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- <div class="card">
+            <div class="card-content">
+                <div class="card-content article-card-content">
+                        <div class="title center-align" data-aos="zoom-in-up">
+                            <i class="fa fa-address-book"></i>&nbsp;&nbsp;<%- __('个人介绍') %>
+                        </div>
+                        <div id="articleContent" data-aos="fade-up">
+                            <%- page.content %>
+                        </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+</main>

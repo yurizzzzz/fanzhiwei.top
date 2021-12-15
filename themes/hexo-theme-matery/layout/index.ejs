@@ -1,0 +1,280 @@
+<% if (is_home() && page.current === 1) { %>
+<%- partial('_partial/index-cover') %>
+<% } else { %>
+    <%- partial('_partial/bg-cover') %>
+<% } %>
+
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 0!important;
+        }
+        .swbk ol {
+            padding: 2px 10px;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 100px;
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        left: -14px;
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 2.4rem;
+        text-indent: 2rem;
+        /* font-style: italic;
+        font-family: 'Architects Daughter', cursive!important; */
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 700px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            padding: 2px 8px;
+        }
+    }
+</style>
+
+<main class="content">
+
+    <% if (page.current === 1
+            && ((theme.dream.enable || theme.music.enable)
+                    || theme.video.enable || theme.recommend.enable)) { %>
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    <% if (theme.dream.enable) { %>
+                        <%- partial('_widget/dream') %>
+                    <% } %>
+
+                    <% if (theme.music.enable && !theme.music.fixed) { %>
+                        <%- partial('_widget/music') %>
+                        <% } %>
+
+                    <% if (theme.video.enable && ( theme.video.url || theme.video.iframeUrl ) ) { %>
+                        <%- partial('_widget/video') %>
+                    <% } %>
+
+                    <% if (theme.recommend.enable) { %>
+                    <div id="recommend-sections" class="recommend">
+                        <div class="ziwojieshao">
+                            <div class="swbk">
+                                <div class="label" style="color: rgb(19, 170, 39);">
+                                    <span>很喜欢这样一句话</span>
+                                </div>
+                                <p align="center">
+                                    《井离》
+                                </p>
+                                <p align="center">
+                                    💝故事的开头极具温柔，但结局却配不上整个开头啊！确实啊，人生若只如初见，何事秋风悲画扇。刚开始的相遇相知相许
+                                    都是美好的，就像一篇好的文章一段好的开头，可是分开了呢，却让故事画上了句号，人和人刚开始认识的时候都是最好的。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="ziwojieshao">
+                            <div class="swbk">
+                                <div class="label" style="color: rgb(214, 91, 111);">
+                                    <span>努力</span>
+                                </div>
+                                <p align="center">
+                                    《人民日报》
+                                </p>
+                                <p align="center">
+                                    🎉比你优秀的人还比你努力，这不是内卷和消耗，而是提醒和砥砺，选择决定未来，用奋斗塑造自我，人生将更开阔！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="ziwojieshao">
+                            <div class="swbk">
+                                <div class="label" style="color: rgb(30, 19, 129);">
+                                    <span>时间</span>
+                                </div>
+                                <p align="center">
+                                    《无名》
+                                </p>
+                                <p align="center">
+                                    🎁十年可见春去秋来，百年可见生老病死，千年可见王朝更替，万年可见斗转星移。
+                                </p>
+                            </div>
+                        </div>
+
+                        <%- partial('_widget/recommend') %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }%>
+
+    <%
+    var hashCode = function (str) {
+        if (!str && str.length === 0) {
+            return 0;
+        }
+
+        var hash = 0;
+        for (var i = 0, len = str.length; i < len; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0;
+        }
+        return hash;
+    };
+    %>
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            <% page.posts.forEach(post => { %>
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="<%- url_for(post.path) %>">
+                        <div class="card-image card-image-V">
+
+                            <div class="box-content">
+                                <h3 class="title">阅读全文</h3>
+                                <!-- <span class="post" style="width: 50px"><%= post.title %></span> -->
+                            </div>
+
+                            <% if (post.img) { %>
+                            <img src="<%- url_for(post.img) %>" class="responsive-img" alt="<%= post.title %>">
+                            <% } else { %>
+                            <%
+                                var featureimg = '/medias/featureimages/0.jpg';
+                                var featureImages = theme.featureImages;
+                                if (!featureImages || featureImages.length == 0) {
+                                    return featureimg;
+                                }
+                                featureimg = featureImages[Math.abs(hashCode(post.title) % featureImages.length)]
+                            %>
+                            <img src="<%- theme.jsDelivr.url %><%- url_for(featureimg) %>" class="responsive-img" alt="<%= post.title %>">
+                            <% } %>
+                            <span class="card-title"><%= post.title %></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            <% if (post.summary && post.summary.length > 0) { %>
+                                <%- post.summary %>
+                            <% } else if (post.excerpt && post.excerpt.length > 0) { %>
+                                <%- strip_html(post.excerpt).substring(0, 120) %>
+                            <% } else if (post.content && post.content.length > 0) { %>
+                                <%- strip_html(post.content).substring(0, 120) %>
+                            <% } %>
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <% if (post.categories && post.categories.length > 0) { %>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                <% post.categories.forEach(category => { %>
+                                <a href="<%- url_for(category.path) %>" class="post-category">
+                                    <%- category.name %>
+                                </a>
+                                <% }); %>
+                                <% } else if (post.author && post.author.length > 0) { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- post.author %>
+                                <% } else { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <% if(post.tags && post.tags.length > 0) { %>
+                    <div class="card-action article-tags">
+                        <% post.tags.forEach(tag => { %>
+                        <a href="<%- url_for(tag.path) %>">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </article>
+
+</main>
+
+<% if (page.total > 1) { %>
+<%- partial('_partial/paging') %>
+<% } %>
