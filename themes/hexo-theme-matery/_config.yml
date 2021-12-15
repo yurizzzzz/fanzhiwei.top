@@ -211,7 +211,7 @@ profile:
   avatar: /medias/avatar.jpg
   career: 天津大学 | 信息与通信工程 | 信号与信息处理方向
   introduction: 我目前在天津大学电气自动化与信息工程学院攻读信息与通信工程方向的硕士研究生，目前的研究方向为图像比特深度的增强；主要的技术栈有Python，C++，Pytorch，Tensorflow，solidworks，
-                ROS等，主要的兴趣方向为图像重建，无人驾驶，边缘AI等
+                ROS，Gstreamer，DeepStreamer等，主要的兴趣方向为图像重建，无人驾驶，边缘AI等
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
